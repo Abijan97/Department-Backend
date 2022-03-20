@@ -17,6 +17,8 @@ using Department_Backend.Persistence;
 using MYNDi.VP.Persistence;
 using MYNDi.VP.Core;
 using ECommerce_Backend.Persistence;
+using Department_Backend.Core;
+using Department_Backend.Core.Models;
 
 namespace Department_Backend
 {
@@ -35,13 +37,15 @@ namespace Department_Backend
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IDepartmentService, DepartmentService>();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
 
 
-         //      services.AddSwaggerGen(c =>
-         //      {
-         //          c.SwaggerDoc("v1", new OpenApiInfo { Title = "Department_Backend", Version = "v1" });
-        //      });
+            //      services.AddSwaggerGen(c =>
+            //      {
+            //          c.SwaggerDoc("v1", new OpenApiInfo { Title = "Department_Backend", Version = "v1" });
+            //      });
 
             services.AddCors(options =>
             {

@@ -33,9 +33,9 @@ namespace Department_Backend.Controllers.Resources.Util
             return departmentResultJson;
         }
 
-        public static List<ListResultJson> DepartmentsResultJson(IEnumerable<Department> department)
+        public static List<DepartmentResultJson> DepartmentsResultJson(IEnumerable<Department> department)
         {
-            var resultjson = department.Select(GetDepartmentResultJson).ToList();
+            var resultjson = department.Select(DepartmentResultJson).ToList();
 
             return resultjson;
         }

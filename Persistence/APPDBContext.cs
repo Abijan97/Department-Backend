@@ -14,5 +14,6 @@ namespace Department_Backend.Persistence
         {
         }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }
