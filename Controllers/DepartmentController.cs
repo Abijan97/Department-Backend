@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace Department_Backend.Controllers
 {
-    [Authorize]
+  
     [ApiController]
     [Route("/api/Departments")]
     public class DepartmentController : ControllerBase
     {
         private readonly IDepartmentService departmentService;
-        public DepartmentController(IDepartmentService departmentService)
+        public DepartmentController(IDepartmentService departmentService, object departmentService1)
         {
             this.departmentService = departmentService;
         }
 
-        [AllowAnonymous]
+      
         [HttpPost("CreateNewDepartment")]
         public async Task<IActionResult> CreateNewDepartment([FromBody] DepartmentInputJson departmentInputJson)
         {
@@ -34,7 +34,7 @@ namespace Department_Backend.Controllers
             return Ok(resultJson);
         }
 
-        [AllowAnonymous]
+      
         [HttpPost("UpdateDepartment")]
         public async Task<IActionResult> UpdateDepartment([FromBody] DepartmentInputJson departmentInputJson)
         {
@@ -47,7 +47,7 @@ namespace Department_Backend.Controllers
             return Ok(resultJson);
         }
 
-        [AllowAnonymous]
+      
         [HttpGet("GetDepartment")]
         public async Task<IActionResult> GetDepartment(int departmentId)
         {
@@ -58,18 +58,19 @@ namespace Department_Backend.Controllers
             return Ok(resultJson);
         }
 
-        [AllowAnonymous]
-        [HttpGet("DeleteDepartment")]
-        public async Task<IActionResult> DeleteDepartment(int departmentId)
+       
+        [HttpPost("DeleteDepartment")]
+        public async Task<IActionResult> DeleteDepartment([FromBody] DepartmentInputJson departmentInputJson)
         {
-            var department = await this.departmentService.DeleteDepartment(departmentId);
 
-            var resultJson = DepartmentUtil.DepartmentResultJson(department);
+            var departmentt = await this.departmentService.DeleteDepartment(departmentInputJson.DepartmentId);
+
+            var resultJson = DepartmentUtil.DepartmentResultJson(departmentt);
 
             return Ok(resultJson);
         }
-
-        [AllowAnonymous]
+         
+       
         [HttpGet("GetDepartments")]
         public async Task<IActionResult> GetDepartments()
         {
@@ -81,5 +82,5 @@ namespace Department_Backend.Controllers
         }
 
   
-    }
+    } 
 }

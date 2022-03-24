@@ -12,6 +12,10 @@ namespace MYNDi.VP.Core
         private readonly IDepartmentRepository departmentRepository;
         private readonly IUnitOfWork unitOfWork;
         public DepartmentService(
+
+           )
+        { }
+        public DepartmentService(
             IDepartmentRepository departmentRepository,
             IUnitOfWork unitOfWork
             )
@@ -36,7 +40,7 @@ namespace MYNDi.VP.Core
             await this.unitOfWork.CompleteAsync();
 
             return department;
-        }
+        } 
 
         public async Task<Department> GetDepartment(int departmentId)
         {

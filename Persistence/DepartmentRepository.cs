@@ -17,6 +17,7 @@ namespace MYNDi.VP.Persistence
         {
             this.context = context;
         }
+        public DepartmentRepository() { }
 
         public void CreateDepartment(Department department)
         {

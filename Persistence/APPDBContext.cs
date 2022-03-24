@@ -13,6 +13,8 @@ namespace Department_Backend.Persistence
        : base(options)
         {
         }
+
+        public APPDBContext() { }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
     }

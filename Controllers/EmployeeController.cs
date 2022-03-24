@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Department_Backend.Controllers
 {
-    [Authorize]
+  
     [ApiController]
     [Route("/api/Employees")]
     public class EmployeeController : ControllerBase
@@ -22,7 +22,7 @@ namespace Department_Backend.Controllers
             this.employeeService = employeeService;
         }
 
-        [AllowAnonymous]
+        
         [HttpPost("CreateNewEmployee")]
         public async Task<IActionResult> CreateNewEmployee([FromBody] EmployeeInputJson employeeInputJson)
         {
@@ -35,7 +35,7 @@ namespace Department_Backend.Controllers
             return Ok(resultJson);
         }
 
-        [AllowAnonymous]
+     
         [HttpPost("UpdateEmployee")]
         public async Task<IActionResult> UpdateEmployee([FromBody] EmployeeInputJson employeeInputJson)
         {
@@ -48,7 +48,7 @@ namespace Department_Backend.Controllers
             return Ok(resultJson);
         }
 
-        [AllowAnonymous]
+      
         [HttpGet("GetEmployee")]
         public async Task<IActionResult> GetEmployee(int employeeId)
         {
@@ -59,18 +59,17 @@ namespace Department_Backend.Controllers
             return Ok(resultJson);
         }
 
-        [AllowAnonymous]
-        [HttpGet("DeleteEmployee")]
-        public async Task<IActionResult> DeleteEmployee(int employeeId)
+       
+        [HttpPost("DeleteEmployee")]
+        public async Task<IActionResult> DeleteEmployee([FromBody] EmployeeInputJson employeeInputJson)
         {
-            var employee = await this.employeeService.DeleteEmployee(employeeId);
+            var employee = await this.employeeService.DeleteEmployee(employeeInputJson.EmployeeId);
 
             var resultJson = EmployeeUtil.EmployeeResultJson(employee);
 
             return Ok(resultJson);
         }
 
-        [AllowAnonymous]
         [HttpGet("GetEmployees")]
         public async Task<IActionResult> GetEmployees()
         {

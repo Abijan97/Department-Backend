@@ -50,7 +50,7 @@ namespace Department_Backend
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsApi",
-                    builder => builder.WithOrigins("http://localhost:4200","https://localhost:44300")
+                    builder => builder.WithOrigins("http://localhost:5500","https://localhost:5500")
                 .AllowAnyHeader()
                 .AllowAnyMethod());
             });
