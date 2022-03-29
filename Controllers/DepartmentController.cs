@@ -16,7 +16,7 @@ namespace Department_Backend.Controllers
     public class DepartmentController : ControllerBase
     {
         private readonly IDepartmentService departmentService;
-        public DepartmentController(IDepartmentService departmentService, object departmentService1)
+        public DepartmentController(IDepartmentService departmentService)
         {
             this.departmentService = departmentService;
         }

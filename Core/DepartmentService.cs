@@ -11,10 +11,7 @@ namespace MYNDi.VP.Core
     {
         private readonly IDepartmentRepository departmentRepository;
         private readonly IUnitOfWork unitOfWork;
-        public DepartmentService(
-
-           )
-        { }
+      
         public DepartmentService(
             IDepartmentRepository departmentRepository,
             IUnitOfWork unitOfWork
